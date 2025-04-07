@@ -106,12 +106,32 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+@keyframes bounce-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+  100% { transform: scale(0.8); opacity: 0.8; }
+}
+
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
 
 .animate-slide-in {
   animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
 }
 
 /* Link underline animation */
@@ -135,4 +155,22 @@
 .link-underline:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* File upload styles */
+.file-upload-area {
+  transition: all 0.2s ease;
+}
+
+.file-upload-area:hover {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.05);
+}
+
+.file-upload-icon {
+  transition: all 0.3s ease;
+}
+
+.file-input-wrapper:hover .file-upload-icon {
+  transform: translateY(-3px);
 }
