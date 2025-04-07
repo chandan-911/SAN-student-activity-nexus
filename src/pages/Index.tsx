@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -20,10 +20,12 @@ const Index = () => {
     emailPassword: '',
   });
 
-  // If already authenticated, redirect to dashboard
-  if (isAuthenticated) {
-    navigate('/dashboard');
-  }
+  // Redirect to dashboard if already authenticated, using useEffect to avoid React Router warning
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

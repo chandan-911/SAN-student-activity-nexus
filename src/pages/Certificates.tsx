@@ -75,7 +75,7 @@ const Certificates = () => {
           </div>
           
           <div className="w-full md:w-64">
-            <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+            <Select value={categoryFilter} onValueChange={(value: string) => setCategoryFilter(value as ActivityCategory | 'all')}>
               <SelectTrigger>
                 <Filter className="h-4 w-4 mr-2" />
                 <SelectValue placeholder="Filter by category" />
